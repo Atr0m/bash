@@ -4,7 +4,7 @@ host=192.168.1.123
 port=23
 user=myuser
 pass=mypassword
-cmd1="show run"
+cmd1="show ip interfece brief"
 
 ( echo open ${host} ${port}
 sleep 3
