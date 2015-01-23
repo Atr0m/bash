@@ -54,7 +54,7 @@ fi;;
    touch $lock
    echo "Se realizara backup switches"
    echo "$DATE" >> $log
-   ./while_loop_glan.sh ips_glan
+   ./while_loop_switch.sh ips_switch
    trap - INT TERM EXIT
 else
    echo "Backup ejecutandose"
@@ -66,7 +66,7 @@ fi;;
    echo "Se realizara backup router y switches"
    echo "$DATE" >> $log
    ./while_loop_routers.sh ips_routers
-   ./while_loop_glan.sh ips_glan
+   ./while_loop_switch.sh ips_switch
    trap - INT TERM EXIT
 else
    echo "Backup ejecutandose"
@@ -76,8 +76,8 @@ fi;;
 4) read -p "Introduce la ip: " ip_router;
 echo $ip_router >> ips_routers;;
 
-5) read -p "Introduce la ip: " ip_glan;
-echo $ip_glan >> ips_glan;;
+5) read -p "Introduce la ip: " ip_switch;
+echo $ip_switch >> ips_switch;;
 
 6) cat log_errores;;
 
