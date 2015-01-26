@@ -1,0 +1,44 @@
+#!/usr/bin/expect -f
+#
+# Script de copia masiva
+#
+# ----------------- Information --------------
+#
+set user tuuser
+set password tupass
+set tftp iptftp
+set timeout 600
+set IP_LAN [lindex $argv 0]
+
+# ------------------ Conection -------------------
+
+spawn telnet $IP_LAN
+expect  "*sername:"
+send    "$user\r"
+expect  "*assword:"
+send    "$password\r"
+
+# ----------------- Configuracion ----------------
+
+
+send    "conf t\r"
+expect  "config"
+send    "ip tftp source-interface loopback700\r"
+expect  "config"
+send    "end\r"
+
+send    "copy running-config tftp://$tftp\r"
+expect  "$tftp"
+send    "\r"
+expect  "filename"
+send    "\r"
+
+send    "conf t\r"
+expect  "config"
+send    "ip tftp source-interface loopback600\r"
+expect  "config"
+send    "\r"
+expect  "config"
+send    "\r"
+expect  "config"
+send    "exit\r"
