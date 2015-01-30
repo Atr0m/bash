@@ -1,16 +1,22 @@
 #!/bin/bash
 # Script que presenta un menu para realizar backups de router y switches Cisco
 
-# Primero limpiamos la terminal para que quede bonito
-clear
-
 # Definiendo las variables
 log=./log_errores
 lock=./backup.lock
 
+# Comprueba que se encuentre el archivo log_errores y si no esta lo crea.
+if [ ! -e $log ]
+    then
+        touch $log
+fi
+
 # Mostramos las diferentes opciones disponibles
 while :
 do
+
+# Limpiamos la terminal para que quede bonito
+clear
 
 echo " ****************************** "
 echo "      Escoja una opcion "
@@ -79,7 +85,9 @@ echo $ip_router >> ips_routers;;
 5) read -p "Introduce la ip: " ip_switch;
 echo $ip_switch >> ips_switch;;
 
-6) cat log_errores;;
+6) cat log_errores
+echo "Presiona enter para continuar...";
+read foo;;
 
 7) cat /dev/null > log_errores;;
 
