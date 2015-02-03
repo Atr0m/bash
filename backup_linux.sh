@@ -101,8 +101,8 @@ fi
 if [ ! -d $DIRAWE ] 
    then
         mkdir $DIRAWE 
-        cp ~/.xinitrc $DIRAWE -Rv >> $LOG_FILE
-        cp ~/.xinitrc $DIRAWE -Rv >> $LOG_FILE && echo $LINE >> $LOG_FILE        
+        cp ~/.config/awesome/rc.lua $DIRAWE -Rv >> $LOG_FILE
+        cp ~/.config/awesome/default/theme.lua $DIRAWE -Rv >> $LOG_FILE && echo $LINE >> $LOG_FILE        
 fi
 
 # MPD
