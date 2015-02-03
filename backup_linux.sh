@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Script basico para realizar un backup de los archivos de configuracion de mi linux
+# Script basico para realizar un backup de los archivos de configuracion de mi linux. Los archivos son comprimidos y subidos a ownCloud. 
 #
 # Variables
 DATE=$(date +'%d-%m-%Y')
@@ -29,7 +29,7 @@ DIRSSH=$WORK_DIR/ssh
 DIRSYS=$WORK_DIR/system
 DIRSLIM=$WORK_DIR/slim
 
-# Creando directorio donde se trabajará, si es que no existe.
+# Creando directorio donde se trabajará, si es que no existe y los archivos de log y lock. En caso de que el archivo lock este creado el script se detiene.
 if [ ! -e $LOCK ]
     then
         mkdir -p $WORK_DIR
@@ -43,7 +43,7 @@ if [ ! -e $LOCK ]
 fi
 
 # Realizando copias de segurida.
-#
+# Se comprueba que la carpeta exista, si no existe se crea. Se copian los archivos deseados y se loguean los cambios.
 # Profanity
 if [ ! -d $DIRPROF ]
     then
