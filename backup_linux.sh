@@ -94,6 +94,7 @@ if [ ! -d $DIRRAN ]
         mkdir $DIRRAN
         cp ~/.config/ranger/rc.conf  $DIRRAN -Rv >> $LOG_FILE
         cp ~/.config/ranger/rifle.conf $DIRRAN -Rv >> $LOG_FILE
+        cp ~/.config/ranger/scope.sh $DIRRAN -Rv >> $LOG_FILE
         cp ~/.config/ranger/commands.py $DIRRAN -Rv >> $LOG_FILE && echo $LINE >> $LOG_FILE
 fi
 
@@ -119,14 +120,12 @@ if [ ! -d $DIRNCM ]
         cp ~/.ncmpcpp/config $DIRNCM -Rv >> $LOG_FILE && echo $LINE >> $LOG_FILE
 fi
 
-
 # Mplayer
 if [ ! -d $DIRMPL ]
     then
         mkdir $DIRMPL
         cp ~/.mplayer/config $DIRMPL -Rv >> $LOG_FILE && echo $LINE >> $LOG_FILE
 fi
-
 
 # Newsbeuter RSS
 if [ ! -d $DIRRSS ]
@@ -143,14 +142,12 @@ if [ ! -d $DIRSMB ]
         sudo cp /etc/samba/smb.conf $DIRSMB -Rv >> $LOG_FILE && echo $LINE >> $LOG_FILE
 fi
 
-
 # SSH
 if [ ! -d $DIRSSH ]
     then
         mkdir $DIRSSH
         sudo cp /etc/ssh/sshd_config $DIRSSH -Rv >> $LOG_FILE && echo $LINE >> $LOG_FILE
 fi
-
 
 # System
 if [ ! -d $DIRSYS ]
